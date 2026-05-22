@@ -4,6 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
+    "start": "node server.js",
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview"
@@ -22,5 +23,8 @@
   "homepage": "https://github.com/pragati-566/GoMico-website-mvp#readme",
   "devDependencies": {
     "vite": "^8.0.14"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
   }
 }
