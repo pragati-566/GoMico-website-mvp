@@ -246,9 +246,34 @@ function validateCallbackForm() {
 // ──────────────────────────────────────────────────────
 
 const phoneInput = document.querySelector("#callbackPhone");
+
+// Block non-numeric keys at keydown level (allows Backspace, Delete, Tab, arrows, etc.)
+phoneInput?.addEventListener("keydown", (e) => {
+  const allowedKeys = [
+    "Backspace", "Delete", "Tab", "ArrowLeft", "ArrowRight",
+    "ArrowUp", "ArrowDown", "Home", "End"
+  ];
+  // Allow control combos (Ctrl+A, Ctrl+C, Ctrl+V, etc.)
+  if (e.ctrlKey || e.metaKey || allowedKeys.includes(e.key)) return;
+  // Block if not a digit
+  if (!/^[0-9]$/.test(e.key)) {
+    e.preventDefault();
+    return;
+  }
+  // Block if already 10 digits and nothing is selected
+  const selectionLength = phoneInput.selectionEnd - phoneInput.selectionStart;
+  if (phoneInput.value.length >= 10 && selectionLength === 0) {
+    e.preventDefault();
+  }
+});
+
+// Sanitize on input (catches paste, autofill, etc.) and enforce 10-digit cap
 phoneInput?.addEventListener("input", () => {
-  // Strip anything that isn't a digit
-  phoneInput.value = phoneInput.value.replace(/[^0-9]/g, "");
+  let sanitized = phoneInput.value.replace(/[^0-9]/g, "");
+  if (sanitized.length > 10) {
+    sanitized = sanitized.slice(0, 10);
+  }
+  phoneInput.value = sanitized;
 });
 
 // ──────────────────────────────────────────────────────
