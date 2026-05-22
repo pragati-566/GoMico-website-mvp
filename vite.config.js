@@ -5,5 +5,4 @@ export default defineConfig({
   build: {
     outDir: 'dist',
   },
-  publicDir: false,
 });

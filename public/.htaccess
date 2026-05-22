@@ -1,0 +1,11 @@
+Options -Indexes
+
+RewriteEngine On
+
+# Ensure the correct base is set
+RewriteBase /
+
+# Provide SPA fallback, so index.html handles routing
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ index.html [QSA,L]
