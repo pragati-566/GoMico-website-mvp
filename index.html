@@ -290,33 +290,40 @@
         <button type="button" data-close-modal class="grid h-10 w-10 shrink-0 place-items-center rounded-full border border-[#d5dae1] text-xl leading-none transition hover:border-brand hover:bg-brand hover:text-white" aria-label="Close callback form">×</button>
       </div>
 
-      <form id="callbackForm" action="https://formsubmit.co/gomico.official@gmail.com" method="POST" class="mt-7 grid gap-5">
-        <!-- FormSubmit hidden config fields -->
-        <input type="hidden" name="_subject" value="New Callback Request from GoMico Website" />
-        <input type="hidden" name="_captcha" value="false" />
-        <input type="hidden" name="_next" value="https://www.gomico.in/" />
-        <input type="hidden" name="_template" value="table" />
-
+      <form id="callbackForm" class="mt-7 grid gap-5" novalidate>
         <label class="grid gap-2 text-sm font-bold">
-          Name <span class="sr-only">required</span>
-          <input required name="name" autocomplete="name" class="rounded-xl border border-[#d5dae1] px-4 py-3 font-medium outline-none transition focus:border-brand" placeholder="Your name" />
+          Name <span class="text-red">*</span>
+          <input id="callbackName" required name="name" autocomplete="name" class="rounded-xl border border-[#d5dae1] px-4 py-3 font-medium outline-none transition focus:border-brand" placeholder="Your name" />
         </label>
         <label class="grid gap-2 text-sm font-bold">
-          Phone no <span class="sr-only">required</span>
-          <input required name="phone" type="tel" inputmode="tel" autocomplete="tel" pattern="[0-9+() -]{8,}" class="rounded-xl border border-[#d5dae1] px-4 py-3 font-medium outline-none transition focus:border-brand" placeholder="8889998889" />
+          Phone no <span class="text-red">*</span>
+          <input id="callbackPhone" required name="phone" type="tel" inputmode="numeric" autocomplete="tel" maxlength="10" class="rounded-xl border border-[#d5dae1] px-4 py-3 font-medium outline-none transition focus:border-brand" placeholder="8889998889" />
         </label>
         <label class="grid gap-2 text-sm font-bold">
-          Reason for callback
-          <select name="reason" class="rounded-xl border border-[#d5dae1] bg-white px-4 py-3 font-medium outline-none transition focus:border-brand">
-            <option>Business enquiry</option>
-            <option>General</option>
-            <option>Hiring related</option>
-            <option>Other</option>
+          Reason for callback <span class="text-red">*</span>
+          <select id="callbackReason" required name="reason" class="rounded-xl border border-[#d5dae1] bg-white px-4 py-3 font-medium outline-none transition focus:border-brand">
+            <option value="" disabled selected>Select a reason</option>
+            <option value="Business enquiry">Business enquiry</option>
+            <option value="General">General</option>
+            <option value="Hiring related">Hiring related</option>
+            <option value="Other">Other</option>
           </select>
         </label>
-        <button type="submit" class="interactive-lift rounded-full bg-brand px-6 py-4 text-sm font-bold text-white hover:bg-[#4f8d00]">Submit request</button>
-        <p id="callbackStatus" class="hidden rounded-xl bg-green-50 px-4 py-3 text-sm font-semibold text-green-700" role="status">Thanks. Your callback request has been captured.</p>
+        <button id="callbackSubmitBtn" type="submit" class="interactive-lift rounded-full bg-brand px-6 py-4 text-sm font-bold text-white hover:bg-[#4f8d00] disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none">Submit request</button>
       </form>
+    </div>
+  </div>
+
+  <!-- Success Modal -->
+  <div id="successModal" class="fixed inset-0 z-[60] hidden items-center justify-center bg-black/60 px-5 py-8 backdrop-blur-sm" role="dialog" aria-modal="true" aria-labelledby="successTitle">
+    <div class="success-modal-panel w-full max-w-[420px] rounded-2xl bg-white p-8 shadow-soft text-center sm:p-10">
+      <div class="mx-auto mb-5 flex h-20 w-20 items-center justify-center rounded-full bg-green-50">
+        <svg class="h-10 w-10 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+      </div>
+      <h2 id="successTitle" class="text-2xl font-extrabold text-black">✅ Thank You!</h2>
+      <p class="mt-3 text-sm leading-6 text-black/65">Thank you for contacting us.<br/>We have received your request and our team will get back to you shortly.</p>
+      <button type="button" id="successCloseBtn" class="interactive-lift mt-7 w-full rounded-full bg-brand px-6 py-4 text-sm font-bold text-white hover:bg-[#4f8d00]">Close</button>
+      <p class="mt-3 text-xs text-black/40" id="successAutoClose">Auto-closing in <span id="successCountdown">5</span>s</p>
     </div>
   </div>
 

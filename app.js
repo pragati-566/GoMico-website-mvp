@@ -1,9 +1,9 @@
 /* ============================================================
    GoMico — app.js
    All JavaScript extracted and organized for production.
-   Includes: mobile menu, modals, form validation, reveal
-   animations, and Motion library hero effects.
-   Form submission is handled by pure HTML FormSubmit action.
+   Includes: mobile menu, modals, form validation, AJAX
+   submission, success modal, reveal animations, and
+   Motion library hero effects.
    ============================================================ */
 
 // ──────────────────────────────────────────────────────
@@ -34,9 +34,12 @@ document.querySelectorAll("#mobileMenu a").forEach((link) => {
 
 const callbackModal = document.querySelector("#callbackModal");
 const termsModal = document.querySelector("#termsModal");
+const successModal = document.querySelector("#successModal");
 const callbackForm = document.querySelector("#callbackForm");
-const callbackStatus = document.querySelector("#callbackStatus");
+const submitBtn = document.querySelector("#callbackSubmitBtn");
 let lastFocusedElement = null;
+let successAutoCloseTimer = null;
+let successCountdownInterval = null;
 
 /**
  * Opens a modal dialog.
@@ -46,10 +49,10 @@ function openModal(modal) {
   if (!modal) return;
   lastFocusedElement = document.activeElement;
 
-  // Reset the success message when opening callback modal
+  // Reset the form when opening callback modal
   if (modal === callbackModal) {
-    callbackStatus?.classList.add("hidden");
     clearFormErrors();
+    resetSubmitButton();
   }
 
   modal.classList.remove("hidden");
@@ -72,8 +75,18 @@ function closeModal(modal) {
   modal.classList.add("hidden");
   modal.classList.remove("flex");
 
+  // Clear success modal timers
+  if (modal === successModal) {
+    clearTimeout(successAutoCloseTimer);
+    clearInterval(successCountdownInterval);
+  }
+
   // Only unlock scrolling if no modals are still open
-  if (!document.querySelector("#callbackModal.flex, #termsModal.flex")) {
+  if (
+    !document.querySelector(
+      "#callbackModal.flex, #termsModal.flex, #successModal.flex"
+    )
+  ) {
     document.body.classList.remove("overflow-hidden");
   }
 
@@ -96,8 +109,13 @@ document.querySelectorAll("[data-close-modal]").forEach((button) => {
   );
 });
 
+// Success modal close button
+document.querySelector("#successCloseBtn")?.addEventListener("click", () => {
+  closeModal(successModal);
+});
+
 // Close on backdrop click
-[callbackModal, termsModal].forEach((modal) => {
+[callbackModal, termsModal, successModal].forEach((modal) => {
   modal?.addEventListener("click", (event) => {
     if (event.target === modal) closeModal(modal);
   });
@@ -107,7 +125,9 @@ document.querySelectorAll("[data-close-modal]").forEach((button) => {
 document.addEventListener("keydown", (event) => {
   if (event.key !== "Escape") return;
   closeModal(
-    document.querySelector("#callbackModal.flex, #termsModal.flex")
+    document.querySelector(
+      "#successModal.flex, #callbackModal.flex, #termsModal.flex"
+    )
   );
 });
 
@@ -181,39 +201,169 @@ function showFieldError(field, message) {
 function validateCallbackForm() {
   clearFormErrors();
   let isValid = true;
+  let firstErrorField = null;
 
   const nameField = callbackForm.querySelector('[name="name"]');
   const phoneField = callbackForm.querySelector('[name="phone"]');
+  const reasonField = callbackForm.querySelector('[name="reason"]');
 
-  // Name: must be at least 2 characters
-  if (!nameField.value.trim() || nameField.value.trim().length < 2) {
-    showFieldError(nameField, "Please enter your name (at least 2 characters).");
+  // Name: required, min 2 characters, letters and spaces only
+  const nameValue = nameField.value.trim();
+  if (!nameValue || nameValue.length < 2 || !/^[A-Za-z\s]+$/.test(nameValue)) {
+    showFieldError(nameField, "Please enter a valid name.");
     isValid = false;
+    if (!firstErrorField) firstErrorField = nameField;
   }
 
-  // Phone: must be 8+ digits
+  // Phone: required, exactly 10 digits
   const phoneDigits = phoneField.value.replace(/[^0-9]/g, "");
-  if (phoneDigits.length < 8) {
-    showFieldError(phoneField, "Please enter a valid phone number.");
+  if (phoneDigits.length !== 10) {
+    showFieldError(
+      phoneField,
+      "Please enter a valid 10-digit phone number."
+    );
     isValid = false;
+    if (!firstErrorField) firstErrorField = phoneField;
+  }
+
+  // Reason: must be selected (not the disabled placeholder)
+  if (!reasonField.value) {
+    showFieldError(reasonField, "Please select a reason for callback.");
+    isValid = false;
+    if (!firstErrorField) firstErrorField = reasonField;
+  }
+
+  // Focus first invalid field
+  if (firstErrorField) {
+    firstErrorField.focus();
   }
 
   return isValid;
 }
 
 // ──────────────────────────────────────────────────────
-// 6. FORM SUBMISSION
-//    Handled by pure HTML form action to FormSubmit.co.
-//    Client-side validation runs before the browser submits.
+// 5b. PHONE INPUT — allow only numeric input
 // ──────────────────────────────────────────────────────
 
-callbackForm?.addEventListener("submit", (event) => {
-  // Run client-side validation; block submit if invalid
+const phoneInput = document.querySelector("#callbackPhone");
+phoneInput?.addEventListener("input", () => {
+  // Strip anything that isn't a digit
+  phoneInput.value = phoneInput.value.replace(/[^0-9]/g, "");
+});
+
+// ──────────────────────────────────────────────────────
+// 6. FORM SUBMISSION (AJAX via FormSubmit.co)
+//    No redirects — success modal shown on same page.
+// ──────────────────────────────────────────────────────
+
+/** Tracks whether a submission is in progress */
+let isSubmitting = false;
+
+/**
+ * Resets the submit button to its default state.
+ */
+function resetSubmitButton() {
+  if (!submitBtn) return;
+  submitBtn.disabled = false;
+  submitBtn.classList.remove("btn-loading");
+  submitBtn.textContent = "Submit request";
+}
+
+/**
+ * Sets the submit button to a loading/disabled state.
+ */
+function setSubmitLoading() {
+  if (!submitBtn) return;
+  submitBtn.disabled = true;
+  submitBtn.textContent = "Submitting…";
+  submitBtn.classList.add("btn-loading");
+}
+
+/**
+ * Opens the success modal with auto-close countdown.
+ */
+function showSuccessModal() {
+  // Close the callback modal first
+  closeModal(callbackModal);
+
+  // Open the success modal
+  openModal(successModal);
+
+  // Start countdown
+  let countdown = 5;
+  const countdownEl = document.querySelector("#successCountdown");
+  if (countdownEl) countdownEl.textContent = countdown;
+
+  successCountdownInterval = setInterval(() => {
+    countdown--;
+    if (countdownEl) countdownEl.textContent = countdown;
+    if (countdown <= 0) {
+      clearInterval(successCountdownInterval);
+    }
+  }, 1000);
+
+  // Auto-close after 5 seconds
+  successAutoCloseTimer = setTimeout(() => {
+    clearInterval(successCountdownInterval);
+    closeModal(successModal);
+  }, 5000);
+}
+
+callbackForm?.addEventListener("submit", async (event) => {
+  event.preventDefault(); // Always prevent default — we handle everything via AJAX
+
+  // Prevent multiple submissions
+  if (isSubmitting) return;
+
+  // Run client-side validation
   if (!validateCallbackForm()) {
-    event.preventDefault();
     return;
   }
-  // If valid, the browser submits the form normally via the HTML action attribute
+
+  isSubmitting = true;
+  setSubmitLoading();
+
+  // Gather form data
+  const formData = new FormData(callbackForm);
+
+  try {
+    const response = await fetch(
+      "https://formsubmit.co/ajax/gomico.official@gmail.com",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          name: formData.get("name"),
+          phone: formData.get("phone"),
+          reason: formData.get("reason"),
+          _subject: "New Callback Request from GoMico Website",
+          _captcha: "false",
+          _template: "table",
+        }),
+      }
+    );
+
+    if (response.ok) {
+      // Success: reset form, show success modal
+      callbackForm.reset();
+      resetSubmitButton();
+      showSuccessModal();
+    } else {
+      throw new Error("Server returned an error");
+    }
+  } catch (error) {
+    // Network or server error
+    resetSubmitButton();
+    showToast(
+      "error",
+      "Something went wrong. Please try again or contact us via WhatsApp."
+    );
+  } finally {
+    isSubmitting = false;
+  }
 });
 
 // ──────────────────────────────────────────────────────
