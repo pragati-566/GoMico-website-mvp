@@ -1,0 +1,305 @@
+/* ============================================================
+   GoMico — styles.css
+   Extracted & organized CSS for production builds.
+   All classes mirror the original inline <style> block exactly.
+   ============================================================ */
+
+/* --- Focus outline (accessibility) --- */
+:focus-visible {
+  outline: 3px solid #92fc05;
+  outline-offset: 4px;
+}
+
+/* --- Scroll-reveal animation --- */
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition:
+    opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- Interactive lift (buttons / links) --- */
+.interactive-lift {
+  transition:
+    color 0.25s ease,
+    background-color 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.25s ease;
+}
+.interactive-lift:hover {
+  transform: translateY(-3px);
+}
+
+/* --- Hover card (pricing / roles) --- */
+.hover-card {
+  transition:
+    color 0.28s ease,
+    background-color 0.28s ease,
+    border-color 0.28s ease,
+    box-shadow 0.28s ease,
+    transform 0.28s ease;
+}
+.hover-card:hover {
+  transform: translateY(-6px);
+  border-color: #5ba000;
+  box-shadow: 0 16px 45px rgba(91, 160, 0, 0.18);
+}
+
+/* --- Metric card hover --- */
+.metric-card:hover {
+  background: #5ba000;
+  color: #fff;
+}
+.metric-card:hover p {
+  color: inherit;
+}
+
+/* --- Hero badge floating animation --- */
+.hero-badge {
+  animation: float-minimal 4.8s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* --- Modal max-height --- */
+.modal-panel {
+  max-height: min(86vh, 760px);
+}
+
+/* --- Prose (Terms & Conditions) --- */
+.prose h3 {
+  margin-top: 1.5rem;
+  font-size: 1rem;
+  font-weight: 800;
+  color: #050505;
+}
+.prose p {
+  margin-top: 0.75rem;
+  line-height: 1.7;
+}
+.prose ul {
+  margin-top: 0.75rem;
+  list-style: disc;
+  padding-left: 1.25rem;
+}
+.prose li + li {
+  margin-top: 0.35rem;
+}
+
+/* --- Hero background noise/gradient overlay --- */
+.noise-line {
+  background-image:
+    radial-gradient(circle at 20% 20%, rgba(146, 252, 5, 0.12), transparent 28%),
+    radial-gradient(circle at 78% 35%, rgba(255, 255, 255, 0.08), transparent 26%);
+}
+
+/* --- Float animation keyframes --- */
+@keyframes float-minimal {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -8px, 0);
+  }
+}
+
+/* --- Reduced motion preferences --- */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .hero-badge {
+    animation: none;
+  }
+}
+
+/* ============================================================
+   MOBILE RESPONSIVENESS FIXES
+   These fix layout issues on small screens without
+   changing the desktop design at all.
+   ============================================================ */
+
+/* --- Hero section: image & badge on small screens --- */
+@media (max-width: 767px) {
+  /* Contain the hero image so it doesn't overflow the viewport */
+  .hero-visual img {
+    position: relative !important;
+    right: auto !important;
+    top: auto !important;
+    width: 100% !important;
+    height: auto !important;
+    max-width: 340px;
+    margin: 0 auto;
+  }
+
+  /* Make sure the hero visual container doesn't need min-height */
+  .hero-visual {
+    min-height: auto !important;
+  }
+
+  /* Reposition the hero badge on mobile */
+  .hero-badge {
+    position: relative !important;
+    bottom: auto !important;
+    left: auto !important;
+    margin-top: 1rem;
+  }
+
+  /* Reduce hero heading size for small phones */
+  .hero-heading {
+    font-size: clamp(32px, 8vw, 44px) !important;
+  }
+}
+
+/* --- Pricing cards: equal height on tablets --- */
+@media (min-width: 640px) and (max-width: 1023px) {
+  .pricing-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .pricing-grid > article:last-child {
+    grid-column: span 2;
+    max-width: 50%;
+    justify-self: center;
+  }
+}
+
+/* --- Roles section: bottom pills wrap nicely --- */
+@media (max-width: 639px) {
+  .role-pills {
+    position: relative !important;
+    bottom: auto !important;
+    left: auto !important;
+    right: auto !important;
+    padding: 0.75rem 1.25rem 1.25rem;
+  }
+}
+
+/* --- Toast notification (success / error popup) --- */
+.toast {
+  position: fixed;
+  top: 1.5rem;
+  right: 1.5rem;
+  z-index: 9999;
+  max-width: 380px;
+  width: calc(100% - 3rem);
+  padding: 1rem 1.25rem;
+  border-radius: 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+  transform: translateX(110%);
+  opacity: 0;
+  transition:
+    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+}
+.toast.show {
+  transform: translateX(0);
+  opacity: 1;
+}
+.toast--success {
+  background: #f0fdf4;
+  color: #15803d;
+  border: 1px solid #bbf7d0;
+}
+.toast--error {
+  background: #fef2f2;
+  color: #b91c1c;
+  border: 1px solid #fecaca;
+}
+.toast__icon {
+  flex-shrink: 0;
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+/* --- Loading spinner on submit button --- */
+.btn-loading {
+  position: relative;
+  pointer-events: none;
+  color: transparent !important;
+}
+.btn-loading::after {
+  content: "";
+  position: absolute;
+  width: 1.125rem;
+  height: 1.125rem;
+  top: 50%;
+  left: 50%;
+  margin-top: -0.5625rem;
+  margin-left: -0.5625rem;
+  border: 2.5px solid rgba(255, 255, 255, 0.35);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* --- Form field validation error state --- */
+.field-error {
+  border-color: #ef4444 !important;
+}
+.field-error-msg {
+  color: #ef4444;
+  font-size: 0.75rem;
+  font-weight: 500;
+  margin-top: 0.25rem;
+}
+
+/* --- Desktop-only tooltip (Call button hint) --- */
+.desktop-tooltip {
+  position: relative;
+}
+.desktop-tooltip::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%) translateY(4px);
+  white-space: nowrap;
+  background: #0a2019;
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 0.5rem 0.875rem;
+  border-radius: 0.5rem;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+  z-index: 50;
+}
+.desktop-tooltip:hover::after {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+/* Hide tooltip on mobile/tablet where calling actually works */
+@media (max-width: 1023px) {
+  .desktop-tooltip::after {
+    display: none;
+  }
+}

@@ -1,0 +1,417 @@
+<!doctype html>
+<html lang="en-IN" class="scroll-smooth">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>GoMico | Auto-Technician Recruitment for Indian Workshops</title>
+  <meta name="description" content="GoMico is India's specialist recruitment partner for car service workshops, helping businesses hire skilled auto-technicians and supervisors." />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#0f2418" />
+  <link rel="canonical" href="https://www.gomico.in/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="GoMico | Auto-Technician Recruitment" />
+  <meta property="og:description" content="Hire verified auto-technicians and supervisors for car service workshops." />
+  <meta property="og:url" content="https://www.gomico.in/" />
+  <meta property="og:image" content="assets/hero-technician.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="GoMico | Auto-Technician Recruitment" />
+  <meta name="twitter:description" content="India's specialist recruitment partner for car service workshops." />
+
+  <!-- Preload critical hero image for faster LCP -->
+  <link rel="preload" href="assets/hero-technician.png" as="image" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+
+  <!-- External CSS (extracted from inline styles) -->
+  <link rel="stylesheet" href="styles.css" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: { forest: "#0f2418", deep: "#0a2019", lime: "#92fc05", brand: "#5ba000", red: "#ee4347" },
+          fontFamily: {
+            sans: ["Plus Jakarta Sans", "system-ui", "sans-serif"],
+            display: ["Plus Jakarta Sans", "system-ui", "sans-serif"],
+            mono: ["Space Grotesk", "system-ui", "sans-serif"]
+          },
+          boxShadow: { soft: "0 18px 60px rgba(0,0,0,.12)", green: "0 10px 35px rgba(91,160,0,.28)" }
+        }
+      }
+    };
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "GoMico",
+      "url": "https://www.gomico.in/",
+      "email": "gomico.official@gmail.com",
+      "telephone": "+91 88899 98889",
+      "description": "India's specialist recruitment partner for car service workshops."
+    }
+  </script>
+</head>
+<body class="bg-white font-sans text-black antialiased">
+  <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-full focus:bg-lime focus:px-5 focus:py-3 focus:text-sm focus:font-bold">Skip to content</a>
+
+  <header class="sticky top-0 z-40 border-b border-[#e9e9e9] bg-white/95 backdrop-blur">
+    <nav class="mx-auto flex max-w-[1440px] items-center justify-between gap-6 px-5 py-5 sm:px-8 lg:px-20 lg:py-7" aria-label="Primary navigation">
+      <a href="#" class="flex shrink-0 items-center gap-2" aria-label="GoMico home">
+        <img src="assets/gomico-logo.svg" alt="" width="46" height="40" class="h-9 w-auto" decoding="async" />
+        <span class="text-2xl font-extrabold tracking-normal sm:text-[28px]">GoMico</span>
+      </a>
+      <button id="menuBtn" class="inline-flex rounded-full border border-[#b9bfc9] p-3 lg:hidden" type="button" aria-controls="mobileMenu" aria-expanded="false" aria-label="Open menu">
+        <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+      <div class="hidden items-center gap-8 text-sm font-medium tracking-normal lg:flex">
+        <a class="font-bold text-green-600 transition hover:text-brand" href="#">Home</a>
+        <a class="transition hover:text-brand" href="#how">How it works</a>
+        <a class="transition hover:text-brand" href="#roles">Roles we hire for</a>
+        <a class="transition hover:text-brand" href="#pricing">Pricing</a>
+        <a class="transition hover:text-brand" href="#mechanics">For mechanics</a>
+      </div>
+      <div class="hidden items-center gap-8 lg:flex">
+        <p class="desktop-tooltip text-sm font-semibold leading-tight" data-tooltip="Calling works best on mobile devices.">
+          Call us now<br />
+          <a class="inline-flex items-center gap-2 text-lg transition hover:text-brand" href="tel:+918889998889" aria-label="Call GoMico at 8889998889">
+            <svg class="h-4 w-4" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8c1.6 3.2 3.4 5 6.6 6.6l2.2-2.2c.3-.3.8-.4 1.2-.3 1.3.4 2.6.6 4 .6.7 0 1.2.5 1.2 1.2v3.5c0 .7-.5 1.2-1.2 1.2C10.6 21.4 2.6 13.4 2.6 3.4c0-.7.5-1.2 1.2-1.2h3.5c.7 0 1.2.5 1.2 1.2 0 1.4.2 2.7.6 4 .1.4 0 .9-.3 1.2l-2.2 2.2Z" fill="currentColor"/></svg>
+            8889998889
+          </a>
+        </p>
+        <a href="https://wa.me/918889998889" class="interactive-lift inline-flex items-center justify-center gap-2 rounded-full border border-[#b9bfc9] bg-white px-5 py-3 text-sm font-semibold text-black hover:border-brand hover:bg-brand hover:text-white hover:shadow-green">WhatsApp us</a>
+      </div>
+    </nav>
+    <div id="mobileMenu" class="hidden border-t border-[#e9e9e9] bg-white px-5 py-5 lg:hidden">
+      <div class="grid gap-4 text-sm font-semibold">
+        <a href="#" class="text-green-600">Home</a>
+        <a href="#how">How it works</a>
+        <a href="#roles">Roles we hire for</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#mechanics">For mechanics</a>
+        <a href="https://wa.me/918889998889" class="mt-2 rounded-full bg-brand px-5 py-3 text-center text-white">WhatsApp us</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="relative overflow-hidden bg-forest text-white">
+      <div class="noise-line absolute inset-0"></div>
+      <div class="mx-auto grid min-h-[645px] max-w-[1440px] items-center gap-10 px-5 py-16 sm:px-8 md:grid-cols-[1fr_.8fr] lg:px-20 lg:py-20">
+        <div class="reveal relative z-10 max-w-[640px]">
+          <p class="mb-6 font-mono text-sm font-bold uppercase tracking-[.08em] text-red">India · Auto-Technician Recruitment</p>
+          <h1 class="hero-heading text-[44px] font-extrabold leading-[1.08] tracking-normal sm:text-[60px] lg:text-[78px]">Stop hiring <span class="text-[#e6e6e6] line-through decoration-[3px]">walk-ins.</span> Start hiring <span class="text-lime">Specialist.</span></h1>
+          <p class="mt-8 max-w-[636px] text-base leading-[1.7] tracking-normal text-white/90 sm:text-lg">Gomico is India's dedicated recruitment partner for car service workshops. We source, vet, and place skilled auto-technicians and supervisors — so your bays stay full and your service quality stays high.</p>
+          <div class="mt-12 flex flex-col gap-4 sm:flex-row">
+            <a href="https://wa.me/918889998889" class="interactive-lift inline-flex items-center justify-center rounded-full bg-brand px-6 py-4 text-sm font-bold text-white shadow-green hover:bg-[#4f8d00]">WhatsApp us</a>
+            <button type="button" data-open-callback class="interactive-lift inline-flex items-center justify-center rounded-full border border-[#b9bfc9] bg-white px-6 py-4 text-sm font-bold text-black hover:border-brand hover:bg-brand hover:text-white">Get a callback</button>
+          </div>
+        </div>
+        <div class="reveal hero-visual relative z-10 min-h-[420px]">
+          <img src="assets/hero-technician.png" alt="Verified auto technician" width="723" height="723" fetchpriority="high" decoding="async" class="absolute right-[-60px] top-0 h-[440px] w-[440px] max-w-none object-contain sm:h-[560px] sm:w-[560px] lg:h-[680px] lg:w-[680px]" />
+          <div class="hero-badge absolute bottom-10 left-0 rounded-full bg-brand/90 px-5 py-4 shadow-soft sm:left-12">
+            <p class="text-base font-extrabold">Every candidate verified</p>
+            <p class="text-sm text-white/90">Aadhaar · Phone · Technical screening</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-white px-5 py-20 sm:px-8 lg:px-20">
+      <div class="mx-auto grid max-w-[1260px] gap-10 lg:grid-cols-[1.2fr_.8fr]">
+        <div class="reveal">
+          <h2 class="max-w-[600px] text-[36px] font-extrabold leading-[1.12] tracking-normal sm:text-5xl">You don't have a customer problem. You have a workforce problem.</h2>
+          <p class="mt-6 max-w-[680px] text-base leading-7 text-black/70">Workshops lose revenue when the right technician is missing. GoMico keeps hiring focused on skilled, verified auto talent.</p>
+          <a href="https://wa.me/918889998889" class="interactive-lift mt-8 inline-flex rounded-full bg-brand px-6 py-3 text-sm font-bold text-white hover:bg-[#4f8d00]">WhatsApp us</a>
+        </div>
+        <div class="reveal grid gap-3">
+          <div class="hover-card metric-card border border-[#e5e7eb] bg-white px-6 py-5 text-black"><p class="text-3xl font-extrabold">200+</p><p class="mt-1 text-sm text-black/60">Auto-technician profiles mapped</p></div>
+          <div class="hover-card metric-card border border-[#e5e7eb] bg-white px-6 py-5 text-black"><p class="text-3xl font-extrabold">7-14d</p><p class="mt-1 text-sm text-black/60">Typical shortlist cycle</p></div>
+          <div class="hover-card metric-card border border-[#e5e7eb] bg-white px-6 py-5 text-black"><p class="text-3xl font-extrabold">96%</p><p class="mt-1 text-sm text-black/60">Candidates phone verified</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="how" class="bg-deep px-5 py-20 text-white sm:px-8 lg:px-20">
+      <div class="mx-auto max-w-[1280px]">
+        <div class="reveal flex flex-col justify-between gap-8 lg:flex-row lg:items-end">
+          <h2 class="max-w-[620px] text-[34px] font-extrabold leading-tight tracking-normal sm:text-5xl">One partner. <span class="text-lime">One pipeline.</span> The right technician on your floor.</h2>
+          <p class="max-w-[410px] text-sm leading-6 text-white/70">The shortest path from hiring requirement to verified shortlist.</p>
+        </div>
+        <div class="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <article class="reveal rounded-lg bg-white p-6 text-black"><p class="text-sm font-bold text-brand">01</p><h3 class="mt-8 text-lg font-extrabold">Source high-fit technicians</h3><p class="mt-3 text-sm leading-6 text-black/65">We map mechanics, supervisors, electricians, denters and painters by city and skill depth.</p></article>
+          <article class="reveal rounded-lg bg-white p-6 text-black"><p class="text-sm font-bold text-brand">02</p><h3 class="mt-8 text-lg font-extrabold">Verify every candidate</h3><p class="mt-3 text-sm leading-6 text-black/65">Phone, identity and technical screening reduce noise before profiles reach your desk.</p></article>
+          <article class="reveal rounded-lg bg-white p-6 text-black"><p class="text-sm font-bold text-brand">03</p><h3 class="mt-8 text-lg font-extrabold">Match to workshop needs</h3><p class="mt-3 text-sm leading-6 text-black/65">We align candidates to brand experience, bay type, salary range and urgency.</p></article>
+          <article class="reveal rounded-lg bg-white p-6 text-black"><p class="text-sm font-bold text-brand">04</p><h3 class="mt-8 text-lg font-extrabold">Support onboarding</h3><p class="mt-3 text-sm leading-6 text-black/65">Interview coordination and joining follow-through keep the hiring process moving.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-white px-5 py-20 sm:px-8 lg:px-20">
+      <div class="mx-auto grid max-w-[1280px] gap-12 lg:grid-cols-[.9fr_1.1fr] lg:items-center">
+        <div class="reveal"><img src="assets/technician-cta.png" alt="GoMico technician" width="699" height="552" loading="lazy" decoding="async" class="mx-auto max-h-[440px] w-full object-contain" /></div>
+        <div class="reveal">
+          <h2 class="text-[34px] font-extrabold leading-tight tracking-normal sm:text-5xl">Why businesses choose Gomico over job portals, agents, and <span class="text-brand">walk-ins.</span></h2>
+          <div class="mt-8 grid gap-4">
+            <div class="rounded-lg border border-[#e5e7eb] p-5"><h3 class="font-extrabold">We recruit for workshops.</h3><p class="mt-2 text-sm leading-6 text-black/65">Auto service hiring needs technical context, not generic resumes.</p></div>
+            <div class="rounded-lg border border-[#e5e7eb] p-5"><h3 class="font-extrabold">We understand workshop roles.</h3><p class="mt-2 text-sm leading-6 text-black/65">Skill matching considers diagnostic ability, brand exposure and floor readiness.</p></div>
+            <div class="rounded-lg border border-[#e5e7eb] p-5"><h3 class="font-extrabold">Real workshop-ready candidates.</h3><p class="mt-2 text-sm leading-6 text-black/65">Shortlists are filtered before interviews, saving owner and manager time.</p></div>
+            <div class="rounded-lg border border-[#e5e7eb] p-5"><h3 class="font-extrabold">Faster hiring, fewer surprises.</h3><p class="mt-2 text-sm leading-6 text-black/65">Clear expectations, verified details and coordination from first call to joining.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="pricing" class="bg-[#f7f8f6] px-5 py-20 sm:px-8 lg:px-20">
+      <div class="mx-auto max-w-[1280px]">
+        <div class="reveal"><h2 class="text-[34px] font-extrabold leading-tight tracking-normal sm:text-5xl">Simple pricing. Priced by who we deliver.</h2></div>
+        <div class="pricing-grid mt-10 grid gap-5 lg:grid-cols-3">
+          <article class="reveal hover-card rounded-lg border border-[#e5e7eb] bg-white p-6"><p class="text-sm font-bold uppercase tracking-[.08em] text-brand">Starter</p><p class="mt-5 text-4xl font-extrabold">₹5,000</p><p class="mt-3 text-sm leading-6 text-black/65">For one urgent shortlist requirement.</p><ul class="mt-6 space-y-3 text-sm text-black/70"><li>Verified profiles</li><li>Phone screening</li><li>Interview coordination</li></ul></article>
+          <article class="reveal hover-card rounded-lg border border-[#e5e7eb] bg-white p-6"><p class="text-sm font-bold uppercase tracking-[.08em] text-brand">Recommended</p><p class="mt-5 text-4xl font-extrabold">₹12,000</p><p class="mt-3 text-sm leading-6 text-black/65">For active workshop hiring.</p><ul class="mt-6 space-y-3 text-sm text-black/70"><li>Priority shortlist</li><li>Technical screening</li><li>Replacement support</li></ul><a href="https://wa.me/918889998889" class="interactive-lift mt-8 inline-flex w-full justify-center rounded-full bg-brand px-5 py-3 text-sm font-bold text-white hover:bg-[#4f8d00]">WhatsApp us</a></article>
+          <article class="reveal hover-card rounded-lg border border-[#e5e7eb] bg-white p-6"><p class="text-sm font-bold uppercase tracking-[.08em] text-brand">Full-stack</p><p class="mt-5 text-4xl font-extrabold">₹22,000</p><p class="mt-3 text-sm leading-6 text-black/65">For recurring technician and supervisor hiring.</p><ul class="mt-6 space-y-3 text-sm text-black/70"><li>Multi-role hiring</li><li>Pipeline tracking</li><li>Onboarding support</li></ul></article>
+        </div>
+        <div class="reveal mt-8 rounded-lg bg-deep p-6 text-white"><p class="text-2xl font-extrabold">50% off</p><p class="mt-2 text-sm text-white/70">Introductory pricing for early workshop partners.</p></div>
+      </div>
+    </section>
+
+    <section id="roles" class="bg-deep px-5 py-20 text-white sm:px-8 lg:px-20">
+      <div class="mx-auto max-w-[1280px]">
+        <div class="reveal grid gap-8 lg:grid-cols-[.75fr_1fr] lg:items-end">
+          <div>
+            <p class="font-mono text-sm font-bold uppercase tracking-[.08em] text-lime">Roles</p>
+            <h2 class="mt-4 text-[34px] font-extrabold leading-tight tracking-normal sm:text-5xl">Roles we actively recruit for.</h2>
+          </div>
+          <p class="max-w-[460px] text-sm leading-6 text-white/65 lg:justify-self-end">Exact workshop talent for service floors, body shops and specialist bays.</p>
+        </div>
+
+        <div class="reveal relative mt-10 min-h-[520px] overflow-hidden rounded-lg border border-white/10 bg-black">
+          <img src="assets/workshop-roles.png" alt="Car service workshop" width="1200" height="520" loading="lazy" decoding="async" class="absolute inset-0 h-full w-full object-cover opacity-80" />
+          <div class="absolute inset-0 bg-gradient-to-r from-[#0a2019] via-[#0a2019]/75 to-[#0a2019]/20"></div>
+          <div class="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#0a2019] to-transparent"></div>
+
+          <div class="relative z-10 grid gap-4 p-5 sm:p-8 lg:grid-cols-3 lg:p-10">
+            <div class="hover-card rounded-lg border border-white/15 bg-white/8 p-5 backdrop-blur-md">
+              <p class="text-xs font-bold uppercase tracking-[.12em] text-lime">Workshop floor</p>
+              <h3 class="mt-4 text-lg font-extrabold">General Service Technician</h3>
+              <p class="mt-2 text-sm leading-6 text-white/65">Routine service, maintenance and bay-ready workshop support.</p>
+            </div>
+            <div class="hover-card rounded-lg border border-white/15 bg-white/8 p-5 backdrop-blur-md">
+              <p class="text-xs font-bold uppercase tracking-[.12em] text-lime">Specialist</p>
+              <h3 class="mt-4 text-lg font-extrabold">Diagnostic Technician</h3>
+              <p class="mt-2 text-sm leading-6 text-white/65">Fault finding, scanning and technical troubleshooting roles.</p>
+            </div>
+            <div class="hover-card rounded-lg border border-white/15 bg-white/8 p-5 backdrop-blur-md">
+              <p class="text-xs font-bold uppercase tracking-[.12em] text-lime">Front desk</p>
+              <h3 class="mt-4 text-lg font-extrabold">Service Advisor</h3>
+              <p class="mt-2 text-sm leading-6 text-white/65">Customer coordination, job cards and workshop communication.</p>
+            </div>
+          </div>
+
+          <div class="role-pills absolute bottom-8 left-5 right-5 z-10 grid gap-3 sm:left-8 sm:right-8 sm:grid-cols-3 lg:left-10 lg:right-10">
+            <div class="rounded-full border border-white/15 bg-black/35 px-5 py-3 text-sm font-semibold backdrop-blur-md">Bodyshop Denter</div>
+            <div class="rounded-full border border-white/15 bg-black/35 px-5 py-3 text-sm font-semibold backdrop-blur-md">Automotive Painter</div>
+            <div class="rounded-full border border-white/15 bg-black/35 px-5 py-3 text-sm font-semibold backdrop-blur-md">Workshop Supervisor</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="mechanics" class="bg-white px-5 py-20 sm:px-8 lg:px-20">
+      <div class="mx-auto max-w-[1080px]">
+        <div class="reveal text-center"><p class="font-mono text-sm font-bold uppercase tracking-[.08em] text-black/70">Service Promise</p><h2 class="mt-4 text-[34px] font-extrabold leading-tight tracking-normal sm:text-5xl">Six things we will <span class="italic text-brand">always</span> do — and what they mean for you.</h2></div>
+        <div class="mt-12 grid gap-4 md:grid-cols-2">
+          <div class="reveal rounded-lg border border-[#e5e7eb] p-6"><h3 class="font-extrabold">No upfront noise, only matches.</h3><p class="mt-3 text-sm leading-6 text-black/65">You see candidates only after basic verification and fit checks.</p></div>
+          <div class="reveal rounded-lg border border-[#e5e7eb] p-6"><h3 class="font-extrabold">No fake experience promises.</h3><p class="mt-3 text-sm leading-6 text-black/65">We clarify skill levels before your interview time is spent.</p></div>
+          <div class="reveal rounded-lg border border-[#e5e7eb] p-6"><h3 class="font-extrabold">Verified candidate calls.</h3><p class="mt-3 text-sm leading-6 text-black/65">Candidates are reachable and aware before being shared.</p></div>
+          <div class="reveal rounded-lg border border-[#e5e7eb] p-6"><h3 class="font-extrabold">Realistic hiring timelines.</h3><p class="mt-3 text-sm leading-6 text-black/65">We set expectations by role, city and urgency.</p></div>
+          <div class="reveal rounded-lg border border-[#e5e7eb] p-6"><h3 class="font-extrabold">Transparent fees.</h3><p class="mt-3 text-sm leading-6 text-black/65">No hidden charges or vague hiring terms.</p></div>
+          <div class="reveal rounded-lg border border-[#e5e7eb] p-6"><h3 class="font-extrabold">On-ground follow-through.</h3><p class="mt-3 text-sm leading-6 text-black/65">We coordinate through interviews, selection and joining.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-[#f5f7f3] px-5 py-20 sm:px-8 lg:px-20">
+      <div class="mx-auto max-w-[900px]">
+        <div class="reveal text-center"><p class="font-mono text-sm font-bold uppercase tracking-[.08em]">FAQ’s</p><h2 class="mt-4 text-[38px] font-extrabold leading-tight tracking-normal sm:text-[62px]">Questions<br /><span class="italic text-brand">you'd be right to ask.</span></h2></div>
+        <div class="reveal mt-12 space-y-3" id="faq">
+          <details class="group rounded-2xl bg-white px-6 py-5"><summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-bold">Why try Gomico over a regular agent or job portal?<span class="grid h-8 w-8 shrink-0 place-items-center rounded-full border border-[#b9bfc9] transition group-open:rotate-45">+</span></summary><p class="mt-4 text-sm leading-6 text-black/65">Because we focus only on automobile hiring. No random profiles — only mechanics, technicians, electricians, denting-painting, supervisors, etc.</p></details>
+          <details class="group rounded-2xl bg-white px-6 py-5"><summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-bold">What if we need a technician urgently this week?<span class="grid h-8 w-8 shrink-0 place-items-center rounded-full border border-[#b9bfc9] transition group-open:rotate-45">+</span></summary><p class="mt-4 text-sm leading-6 text-black/65">We understand urgent hiring. Share your requirement, and we’ll quickly connect relevant candidates from our network.</p></details>
+          <details class="group rounded-2xl bg-white px-6 py-5"><summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-bold">How is Gomico different from a job portal?<span class="grid h-8 w-8 shrink-0 place-items-center rounded-full border border-[#b9bfc9] transition group-open:rotate-45">+</span></summary><p class="mt-4 text-sm leading-6 text-black/65">Job portals are general. Gomico is automobile-specific, helping workshops connect with relevant technician profiles faster.</p></details>
+          <details class="group rounded-2xl bg-white px-6 py-5"><summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-bold">What cities do you cover?<span class="grid h-8 w-8 shrink-0 place-items-center rounded-full border border-[#b9bfc9] transition group-open:rotate-45">+</span></summary><p class="mt-4 text-sm leading-6 text-black/65">We are expanding across India. Share your city and requirement, and we’ll confirm availability.</p></details>
+          <details class="group rounded-2xl bg-white px-6 py-5"><summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-bold">What’s the contract structure?<span class="grid h-8 w-8 shrink-0 place-items-center rounded-full border border-[#b9bfc9] transition group-open:rotate-45">+</span></summary><p class="mt-4 text-sm leading-6 text-black/65">It depends on the hiring requirement. Terms are shared clearly before we begin.</p></details>
+          <details class="group rounded-2xl bg-white px-6 py-5"><summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-bold">Will we interview candidates ourselves?<span class="grid h-8 w-8 shrink-0 place-items-center rounded-full border border-[#b9bfc9] transition group-open:rotate-45">+</span></summary><p class="mt-4 text-sm leading-6 text-black/65">Yes, 100%. Final hiring decision is always yours.</p></details>
+          <details class="group rounded-2xl bg-white px-6 py-5"><summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-bold">Do you work with international workshops?<span class="grid h-8 w-8 shrink-0 place-items-center rounded-full border border-[#b9bfc9] transition group-open:rotate-45">+</span></summary><p class="mt-4 text-sm leading-6 text-black/65">Currently, our main focus is India, but we’re open to international opportunities based on requirements.</p></details>
+        </div>
+      </div>
+    </section>
+
+    <section class="relative overflow-hidden bg-brand px-5 py-20 text-white sm:px-8 lg:px-20">
+      <div class="absolute inset-0 noise-line"></div>
+      <div class="mx-auto grid max-w-[1280px] gap-10 lg:grid-cols-[1fr_.8fr] lg:items-center">
+        <div class="reveal relative z-10">
+          <h2 class="max-w-[700px] text-[42px] font-extrabold leading-[1.08] tracking-normal sm:text-[64px] lg:text-[78px]">Let's fill that bay. Fifteen minutes is all it takes.</h2>
+          <p class="mt-8 max-w-[700px] text-lg leading-[1.6] text-white/80">Tell us what role you need and which city. We'll come back within 48 hours with realistic timelines and a draft shortlist plan. No pitch deck, no sales theater.</p>
+          <div class="mt-12 flex flex-col gap-4 sm:flex-row"><a href="https://wa.me/918889998889" class="interactive-lift inline-flex justify-center rounded-full bg-black px-6 py-4 text-sm font-bold text-white">WhatsApp us</a><button type="button" data-open-callback class="interactive-lift inline-flex justify-center rounded-full border border-white bg-white px-6 py-4 text-sm font-bold text-black hover:border-brand hover:bg-brand hover:text-white">Get a callback</button></div>
+        </div>
+        <img src="assets/technician-cta.png" alt="Technician beside car" width="699" height="552" loading="lazy" decoding="async" class="reveal relative z-10 h-[360px] w-full object-contain lg:h-[520px]" />
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-deep px-5 py-16 text-white sm:px-8 lg:px-20">
+    <div class="mx-auto max-w-[1280px]">
+      <div class="grid gap-10 lg:grid-cols-[1fr_1fr] lg:items-start">
+        <div>
+          <div class="flex items-center gap-2"><img src="assets/gomico-logo-footer.svg" alt="" width="41" height="35" loading="lazy" decoding="async" class="h-9 w-auto" /><span class="text-2xl font-extrabold">GoMico</span></div>
+          <p class="mt-5 max-w-[370px] text-base leading-7 text-white/80">India's specialist recruitment partner for car service workshops. We help workshops hire skilled technicians and supervisors, without the noise of generalist job portals.</p>
+        </div>
+        <div class="grid gap-8 sm:grid-cols-2 lg:justify-self-end">
+          <div><p class="font-bold">Contact us</p><div class="mt-5 grid gap-3 text-sm text-white/65"><a class="hover:text-white" href="https://wa.me/918889998889">WhatsApp us: +91 88899 98889</a><a class="hover:text-white" href="mailto:gomico.official@gmail.com">gomico.official@gmail.com</a><a class="hover:text-white" href="https://www.gomico.in/">www.gomico.in</a></div></div>
+        </div>
+      </div>
+      <div class="mt-14 flex flex-col gap-5 border-t border-white/15 pt-6 text-xs text-white/60 sm:flex-row sm:items-center sm:justify-between">
+        <div class="flex gap-6"><a href="#" class="hover:text-white">Privacy Policy</a><button type="button" data-open-terms class="hover:text-white">Terms & Conditions</button></div>
+        <p>© Made with Love © 2026 | All Rights Reserved</p>
+      </div>
+    </div>
+  </footer>
+
+  <div id="callbackModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/60 px-5 py-8 backdrop-blur-sm" role="dialog" aria-modal="true" aria-labelledby="callbackTitle">
+    <div class="modal-panel w-full max-w-[520px] overflow-y-auto rounded-2xl bg-white p-6 shadow-soft sm:p-8">
+      <div class="flex items-start justify-between gap-6">
+        <div>
+          <p class="font-mono text-xs font-bold uppercase tracking-[.12em] text-brand">Callback</p>
+          <h2 id="callbackTitle" class="mt-2 text-2xl font-extrabold">Get a callback</h2>
+          <p class="mt-2 text-sm leading-6 text-black/60">Share a few details and the Gomico team will get back to you.</p>
+        </div>
+        <button type="button" data-close-modal class="grid h-10 w-10 shrink-0 place-items-center rounded-full border border-[#d5dae1] text-xl leading-none transition hover:border-brand hover:bg-brand hover:text-white" aria-label="Close callback form">×</button>
+      </div>
+
+      <form id="callbackForm" action="https://formsubmit.co/gomico.official@gmail.com" method="POST" class="mt-7 grid gap-5">
+        <!-- FormSubmit hidden config fields -->
+        <input type="hidden" name="_subject" value="New Callback Request from GoMico Website" />
+        <input type="hidden" name="_captcha" value="false" />
+        <input type="hidden" name="_next" value="https://www.gomico.in/" />
+        <input type="hidden" name="_template" value="table" />
+
+        <label class="grid gap-2 text-sm font-bold">
+          Name <span class="sr-only">required</span>
+          <input required name="name" autocomplete="name" class="rounded-xl border border-[#d5dae1] px-4 py-3 font-medium outline-none transition focus:border-brand" placeholder="Your name" />
+        </label>
+        <label class="grid gap-2 text-sm font-bold">
+          Phone no <span class="sr-only">required</span>
+          <input required name="phone" type="tel" inputmode="tel" autocomplete="tel" pattern="[0-9+() -]{8,}" class="rounded-xl border border-[#d5dae1] px-4 py-3 font-medium outline-none transition focus:border-brand" placeholder="8889998889" />
+        </label>
+        <label class="grid gap-2 text-sm font-bold">
+          Reason for callback
+          <select name="reason" class="rounded-xl border border-[#d5dae1] bg-white px-4 py-3 font-medium outline-none transition focus:border-brand">
+            <option>Business enquiry</option>
+            <option>General</option>
+            <option>Hiring related</option>
+            <option>Other</option>
+          </select>
+        </label>
+        <button type="submit" class="interactive-lift rounded-full bg-brand px-6 py-4 text-sm font-bold text-white hover:bg-[#4f8d00]">Submit request</button>
+        <p id="callbackStatus" class="hidden rounded-xl bg-green-50 px-4 py-3 text-sm font-semibold text-green-700" role="status">Thanks. Your callback request has been captured.</p>
+      </form>
+    </div>
+  </div>
+
+  <div id="termsModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/60 px-5 py-8 backdrop-blur-sm" role="dialog" aria-modal="true" aria-labelledby="termsTitle">
+    <div class="modal-panel w-full max-w-[860px] overflow-y-auto rounded-2xl bg-white p-6 shadow-soft sm:p-8">
+      <div class="sticky top-0 -mx-6 -mt-6 flex items-start justify-between gap-6 border-b border-[#e5e7eb] bg-white px-6 py-5 sm:-mx-8 sm:-mt-8 sm:px-8">
+        <div>
+          <p class="font-mono text-xs font-bold uppercase tracking-[.12em] text-brand">Legal</p>
+          <h2 id="termsTitle" class="mt-2 text-2xl font-extrabold">Terms & Conditions</h2>
+          <p class="mt-1 text-sm text-black/60">Last Updated: 2026</p>
+        </div>
+        <button type="button" data-close-modal class="grid h-10 w-10 shrink-0 place-items-center rounded-full border border-[#d5dae1] text-xl leading-none transition hover:border-brand hover:bg-brand hover:text-white" aria-label="Close terms and conditions">×</button>
+      </div>
+
+      <div class="prose prose-sm mt-7 max-w-none text-black/75">
+        <p>Welcome to <strong>Gomico</strong>. By accessing or using our website and services, you agree to comply with these Terms & Conditions. Please read them carefully.</p>
+        <h3>1. About Gomico</h3>
+        <p>Gomico is an automobile recruitment platform that helps connect workshops, service centers, garages, and automobile businesses with skilled technicians and professionals, including mechanics, electricians, denting-painting experts, workshop supervisors, and related roles.</p>
+        <p>Gomico acts as a recruitment support and networking platform and does not guarantee employment or hiring outcomes.</p>
+        <h3>2. Acceptance of Terms</h3>
+        <p>By using Gomico, registering, submitting information, or accessing our services, you agree to these Terms & Conditions.</p>
+        <p>If you do not agree, please do not use our website or services.</p>
+        <h3>3. Services Offered</h3>
+        <p>Gomico provide:</p>
+        <ul>
+          <li>Candidate sourcing and recruitment support</li>
+          <li>Workshop/employer hiring assistance</li>
+          <li>Technician opportunity discovery</li>
+          <li>Communication support between workshops and candidates</li>
+        </ul>
+        <p>Service scope may change or improve over time without prior notice.</p>
+        <h3>4. For Employers / Workshops</h3>
+        <p>By using Gomico, employers agree that:</p>
+        <ul>
+          <li>All job requirements shared must be genuine and lawful.</li>
+          <li>Salary, work conditions, and job details must be communicated honestly.</li>
+          <li>Final hiring decisions remain the responsibility of the employer.</li>
+          <li>Employers are responsible for conducting interviews, technical checks, background verification, and final selection.</li>
+        </ul>
+        <p>Gomico is not liable for employee performance, conduct, attendance, or retention after hiring.</p>
+        <h3>5. For Candidates / Technicians</h3>
+        <p>By using Gomico, candidates agree that:</p>
+        <ul>
+          <li>Information provided must be accurate and truthful.</li>
+          <li>Fake experience, false documents, or misleading claims are prohibited.</li>
+          <li>Job availability depends on market demand and employer requirements.</li>
+        </ul>
+        <p>Gomico does not guarantee job placement, interview selection, or employment.</p>
+        <h3>6. No Employment Guarantee</h3>
+        <p>Gomico only connects employers and candidates.</p>
+        <p>We do not guarantee:</p>
+        <ul>
+          <li>Hiring success</li>
+          <li>Interview calls</li>
+          <li>Salary expectations</li>
+          <li>Job continuity or retention</li>
+        </ul>
+        <p>Final decisions always depend on employer requirements and candidate suitability.</p>
+        <h3>7. Fees & Payments</h3>
+        <p>Any recruitment fees, service charges, or hiring agreements (if applicable) will be communicated clearly before engagement.</p>
+        <p>Gomico reserves the right to update pricing or service structures.</p>
+        <h3>8. Data & Privacy</h3>
+        <p>By using Gomico, you consent to sharing necessary information for recruitment purposes.</p>
+        <p>We take reasonable measures to protect data, but users should avoid sharing sensitive information unnecessarily.</p>
+        <p>Please review our Privacy Policy for more information.</p>
+        <h3>9. Prohibited Activities</h3>
+        <p>Users must not:</p>
+        <ul>
+          <li>Share false information</li>
+          <li>Misuse candidate or employer data</li>
+          <li>Attempt fraud, spam, or unauthorized access</li>
+          <li>Use Gomico for unlawful activities</li>
+        </ul>
+        <p>Gomico reserves the right to suspend or terminate access for misuse.</p>
+        <h3>10. Limitation of Liability</h3>
+        <p>Gomico is not responsible for:</p>
+        <ul>
+          <li>Hiring disputes</li>
+          <li>Salary disagreements</li>
+          <li>Candidate behavior or employer conduct</li>
+          <li>Losses arising from hiring decisions</li>
+        </ul>
+        <p>Users are responsible for conducting their own checks before employment or hiring.</p>
+        <h3>11. Intellectual Property</h3>
+        <p>All content, branding, logos, and materials related to Gomico are the property of Gomico and may not be copied or used without permission.</p>
+        <h3>12. Changes to Terms</h3>
+        <p>Gomico may update these Terms & Conditions at any time. Updated terms will be posted on this page.</p>
+        <h3>13. Contact Us</h3>
+        <p>For any questions regarding these Terms & Conditions, contact us:</p>
+        <p><strong>Gomico</strong><br />Email: gomico.official@gmail.com<br />Phone/WhatsApp: 8889998889</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- All JS extracted to app.js (EmailJS, modals, validation, animations) -->
+  <script type="module" src="app.js"></script>
+</body>
+</html>
